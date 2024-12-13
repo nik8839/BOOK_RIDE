@@ -121,8 +121,8 @@ GRAPHHOPPER_API_KEY=your_graphhopper_api_key
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/uber-like-web-app.git
-   cd uber-like-web-app
+   git clone https://github.com/yourusername/BOOK_RIDE.git
+   cd BOOK_RIDE
    ```
 2. Install dependencies for both frontend and backend:
    ```bash
@@ -138,9 +138,9 @@ GRAPHHOPPER_API_KEY=your_graphhopper_api_key
      cd frontend
      npm start
      ```
-   - **Backend**:
+   - **Backened**:
      ```bash
-     cd backend
+     cd backened
      nodemon server.js
      ```
 
