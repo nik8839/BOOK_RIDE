@@ -64,11 +64,19 @@ module.exports.getUserProfile = async (req, res, next) => {
 }
 module.exports.logoutUser=async (req,res,next)=>{
 
-  res.clearCookie('token')
-  const token = req.cookies.token || req.headers.authorization?.split(' ')[ 1 ];
+  try {
+    res.clearCookie('token')
+    const token = req.cookies.token || req.headers.authorization?.split(' ')[ 1 ];
+  console.log("working "+token)
+    //await blackListTokenModel.create({ token });
+    res.status(200).json({messgae:"Logged Out"})
+  } catch (error) {
+    console.error('Logout Error:', error);
+    return res.status(500).json({ message: 'Internal server error' });
+  }
 
-  await blackListTokenModel.create({ token });
-  res.status(200).json({messgae:"Logged Out"})
+
+
 
 
 }

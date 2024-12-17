@@ -17,13 +17,16 @@ const Captainlogin = () => {
       password:password
 
     }
-    const response = await axios.post(`${process.env.REACT_APP_BACKENED_URL}/captains/login`, captain)
+    console.log(email +" "+password)
+    const response = await axios.post(`${process.env.REACT_APP_BACKENED_URL}/captains/login`, captaindata)
 
     if (response.status === 200) {
+      
       const data = response.data
-
+       console.log(data.captain+" and is "+data.token)
       setCaptain(data.captain)
-      localStorage.setItem('captain-token', data.token)
+      localStorage.setItem('token', data.token)
+
       navigate('/captainhome')
 
     }

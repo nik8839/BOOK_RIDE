@@ -4,7 +4,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
 export const CaptainLogout = () => {
-    const token = localStorage.getItem('captain-token')
+    const token = localStorage.getItem('token')
     const navigate = useNavigate()
 
     axios.get(`${process.env.REACT_APP_BACKENED_URL}/captains/logout`, {
@@ -13,14 +13,11 @@ export const CaptainLogout = () => {
         }
     }).then((response) => {
         if (response.status === 200) {
-            localStorage.removeItem('captain-token')
+            localStorage.removeItem('token')
             navigate('/captainlogin')
         }
     })
 
-    return (
-        <div>CaptainLogout</div>
-    )
 }
 
 export default CaptainLogout

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 export const UserLogout = () => {
 
     const token = localStorage.getItem('token')
+    console.log(token)
     const navigate = useNavigate()
 
     axios.get(`${process.env.REACT_APP_BACKENED_URL}/users/logout`, {

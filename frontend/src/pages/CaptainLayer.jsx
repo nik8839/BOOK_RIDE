@@ -7,7 +7,7 @@ const CaptainLayer = ({
     children
 }) => {
 
-    const token = localStorage.getItem('captain-token')
+    const token = localStorage.getItem('token')
     const navigate = useNavigate()
     const { captain, setCaptain } = useContext(CaptainDataContext)
     const [ isLoading, setIsLoading ] = useState(true)
@@ -32,7 +32,7 @@ const CaptainLayer = ({
         })
             .catch(err => {
 
-                localStorage.removeItem('captain-token')
+                localStorage.removeItem('token')
                 navigate('/captainlogin')
             })
     }, [ token ])

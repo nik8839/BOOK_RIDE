@@ -115,9 +115,12 @@ module.exports.confirmRide = async (req, res) => {
         return res.status(400).json({ errors: errors.array() });
     }
 
+     console.log("in confirm ride "+req)
     const { rideId } = req.body;
 
     try {
+        //const ride = await rideService.confirmRide({ rideId });
+
         const ride = await rideService.confirmRide({ rideId, captain: req.captain });
 
         sendMessageToSocketId(ride.user.socketId, {

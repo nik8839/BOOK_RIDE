@@ -59,7 +59,7 @@ const App = () => {
           }
         ></Route>
                 <Route
-          path="/captainlogut"
+          path="/captainlogout"
           element={
             <CaptainLayer>
               <CaptainLogout />

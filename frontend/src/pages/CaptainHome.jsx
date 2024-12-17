@@ -181,7 +181,7 @@ const CaptainHome = () => {
       },
       {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('captain-token')}`,
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       }
     );
@@ -207,6 +207,17 @@ const CaptainHome = () => {
   }, [confirmRidePopupPanel]);
 
   return (
+    <>
+
+        <div>
+      <Link
+        to='/captainlogout'
+       
+        className=" top-4 right-4 bg-red-500 text-white px-4 py-2 rounded-lg shadow hover:bg-red-600 transition duration-200"
+      >
+        Logout
+      </Link>
+    </div>
     <div className="flex flex-col h-screen">
       {/* Map Section */}
       <div className="h-2/3 w-full">
@@ -243,6 +254,8 @@ const CaptainHome = () => {
         />
       </div>
     </div>
+
+    </>
   );
 };
 
