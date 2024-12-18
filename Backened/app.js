@@ -4,7 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const paypal = require('paypal-rest-sdk');
 
-
+const path = require('path');
 const cookieParser = require('cookie-parser');
 const connectToDb = require('./db/db');
 const userRoutes = require('./routes/user.routes');
@@ -22,16 +22,25 @@ paypal.configure({
 });
 connectToDb();
 
+
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'build')));
 
 
 
 app.get('/', (req, res) => {
     res.send('Hello World');
 });
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
 
 
 app.use('/users', userRoutes);
